@@ -1,9 +1,24 @@
 <?php include("admin-header.php"); ?>
 	<div class="container content-start">
 		<div class="row">
-				<section class="content">
-					   <div class=" bg-white" style="padding:20px;">
-					   <div class="row ">
+		<div class="col-md-3 ">
+		     <div class="list-group ">
+              <a href="profile.php" class="list-group-item list-group-item-action active">Profile</a>
+              <a href="exam-list.php" class="list-group-item list-group-item-action ">Exams</a>
+              <a href="rank-list.php" class="list-group-item list-group-item-action ">Rankings</a>
+              <a href="change-password.php" class="list-group-item list-group-item-action">Change Password</a>
+            </div> 
+		</div>
+		<div class="col-md-9">
+		    <div class="card" style="padding:20px;">
+		        <div class="card-body">
+		            <div class="row">
+		                <div class="col-md-12">
+		                    <h4>Your Profile</h4>
+		                    <hr>
+		                </div>
+		            </div>
+		             <div class="row ">
 								<div class="col-md-2 col-lg-2 " align="center"> <img alt="User Pic" src="http://wowslider.com/posts/data/upload/2017/04/icons-collection.jpg" class=" img-responsive thumbnail"> </div>
 								
 							  
@@ -45,15 +60,17 @@
 									</tbody>
 								  </table>
 								  <div class="pull-right">
-								  <a href="#" class="btn btn-warning">Edit</a>
+								  <a href="edit-profile.php" class="btn btn-warning">Edit</a>
 								  </div>
 								
 								</div>
 							  </div>
-							  </div>
-      <!-- /.row -->
-    </section>
+		            
+		        </div>
+		    </div>
 		</div>
+	</div>
+		
 	</div>
 	
 <?php include("footer.php"); ?>
