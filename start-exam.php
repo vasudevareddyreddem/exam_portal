@@ -55,7 +55,22 @@
 					<a href="#" class="btn btn-primary" >Total Score</a>
 				</div>
 				<div class="text-center mar-t35">
-					<a href="#" class="btn btn-primary" >Daily Quest</a>
+					<a href="#" class="btn btn-primary"  data-toggle="collapse" data-target="#demo" >Daily Quest</a>
+					<div id="demo" class="collapse">
+					<div class="clearfix">&nbsp;</div>
+   <div class="btn-group">
+    
+        <a class="btn btn-default btn-sm" target="_blank"
+                title="On Facebook" href="#"><i class="fa fa-facebook fa-lg fb"></i></a>
+        <a class="btn btn-default btn-sm" target="_blank" title="On Twitter" href="#"><i
+            class="fa fa-twitter fa-lg tw"></i></a>
+			<a class="btn btn-default btn-sm" target="_blank"
+                title="On Google Plus" href="#"><i class="fa fa-google-plus fa-lg google"></i>
+        </a>
+		<a class="btn btn-default btn-sm" target="_blank" title="On LinkedIn" href="#"><i
+            class="fa fa-youtube fa-lg linkin"></i></a>
+    </div>
+  </div>
 				</div>
 				<div class="text-center mar-t35">
 					<a href="#" class="btn btn-primary" >What New's</a>
