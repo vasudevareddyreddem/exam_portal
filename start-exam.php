@@ -73,7 +73,7 @@
   </div>
 				</div>
 				<div class="text-center mar-t35">
-					<a href="#" class="btn btn-primary" >What New's</a>
+					<a class="btn btn-primary" data-toggle="modal"  href="#feedback">What New's</a>
 				</div>	
 				<div class="text-center mar-t35">
 					<a href="#" class="btn btn-primary" >Subscribe</a>
@@ -85,6 +85,40 @@
     </section>
 		</div>
 	</div>
+	<div class="modal fade" id="feedback">
+                  <div class="modal-dialog">
+                     <div class="modal-content title1">
+                        <div class="modal-header bg-primary text-white">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <h3 class="modal-title ">What New's</h3>
+                        </div>
+                        <div class="modal-body">
+                      
+                        <div class="col-md-12" >
+                           <form class="form-horizontal" action="login.php?q=index.php" method="POST">
+                          
+                                 <!-- Text input-->
+                                 <div class="form-group">
+                                    <label class=" control-label" for="email">Feedback</label>  
+                                    <div style="margin-top:5px;">
+                                       <textarea   placeholder="Enter your feedback" class="form-control input-md" type="text" rows="5"></textarea>
+                                    </div>
+                                 </div>
+                                 <!-- Password input-->
+                              
+                        </div>
+                        </div>
+						<div class="clearfix">&nbsp;</div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      
+                        </form>
+                        </div>
+                        </div>
+                     </div>
+                     <!-- /.modal-content -->
+                  </div>
 	  <script>
   $(function () {
     $("#example1").DataTable();
