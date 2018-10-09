@@ -68,10 +68,52 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       
       <ul class="nav navbar-nav navbar-right" >
-	  <?php if(isset($details['role']) && $details['role']==2){ 
-	  
-	  ?>
-	  <li><a href="<?php echo base_url('dashboard'); ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Home<span class="sr-only">(current)</span></a></li>
+	  <?php if(isset($details['role']) && $details['role']==2){ ?>
+	   <li class="dropdown"> 
+  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+    <i class="glyphicon glyphicon-bell"></i> <sup>10</sup>
+  </a>
+  
+  <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
+    
+    <div class="notification-heading"><h4 class="menu-title">Notifications</h4>
+    </div> 
+   <div class="notifications-wrapper"> 
+     <a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>  
+	<a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>     <a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>  
+	<a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>
+
+    
+      
+
+   </div> 
+  </ul>
+  </li>
+		<li><a href="<?php echo base_url('dashboard'); ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Home<span class="sr-only">(current)</span></a></li>
 		<li><a href="<?php echo base_url('exam/completed_list'); ?>"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp; Exam Name</a></li>
 		<li><a href="<?php echo base_url('exam/rank'); ?>"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp; Ranking</a></li> 
 		
