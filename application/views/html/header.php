@@ -22,16 +22,17 @@
    </head>
    <body>
    <header>
-   <div class="bg-site" style="width:100%;border-radius:0px;">
+   <div class="bg-site height-mobile" style="width:100%;border-radius:0px;">
 	   <div class="container">
 		   <div class="col-md-6">
 					 <a class="" href="<?php echo base_url(); ?>">
 				<img style="width:80px;height:auto;padding:5px;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png" alt="logo" >
-			  </a> <span style="font-size:25px;margin-left:15px;font-weight:600">Be a Millionaire</span>
+			  </a> <span style="font-size:20px;margin-left:15px;font-weight:600">Be a Millionaire</span>
 		   </div>
+		   <hr class="md-hide" style="margin:4px;padding:0px;border-top:1px solid #6886a9;">
 		   <div class="col-md-6">
 				
-				 <ul class="main-head-li" style="margin-top:10px;">
+				 <ul class="main-head-li" >
 				   <?php if(isset($details['role']) && $details['role']==2){ ?>
 				 <li class="dropdown "> 
   <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html" aria-expanded="true">

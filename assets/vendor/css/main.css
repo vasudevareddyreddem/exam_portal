@@ -283,8 +283,8 @@ text-decoration:none;
 	margin-top:4px
 }
 
-.btn-facebook {
-    background-color: #3D5B96 !important;
+.btn-twitter {
+    background-color: #5bc0de !important;
     width: 51px;
     color:#FFFFFF!important;
 	margin-top:4px
@@ -367,6 +367,7 @@ ul, ol {
 }
 .main-head-li{
 float:right;
+margin-top:10px;
 
 }
 .main-head-li > li{
@@ -544,4 +545,25 @@ box-shadow: -2px 6px 39px -8px rgba(0,0,0,0.75);
 @-webkit-keyframes signup-response{
     from {opacity :1;}
     to {opacity :0;}
+}
+.sm-hide{
+	display:block;
+}
+.md-hide{
+	display:none
+}
+@media only screen and (max-width: 768px){
+.sm-hide{
+	display:none
+}
+.md-hide{
+	display:block
+}
+.main-head-li{
+float:right;
+margin-top:0px;
+
+}
+
+
 }
