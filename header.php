@@ -27,7 +27,50 @@
 		   <div class="col-md-6">
 				
 				 <ul class="main-head-li" style="margin-top:10px;">
-					 
+					 <li class="dropdown"> 
+  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+    <i class="glyphicon glyphicon-bell"></i> <sup>10</sup>
+  </a>
+  
+  <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
+    
+    <div class="notification-heading"><h4 class="menu-title">Notifications</h4>
+    </div> 
+   <div class="notifications-wrapper"> 
+     <a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>  
+	<a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>     <a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>  
+	<a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>
+
+    
+      
+
+   </div> 
+  </ul>
+  </li>
 					<li><a href="login-user.php" ><span class="glyphicon glyphicon-log-in"></span> &nbsp; Login</a></li>
 					<li><a href="#" ><img style="width:30px;height:30px;border-radius:50%;border:2px solid #ddd;margin-top:-10px;" src="image/user1.jpg"> Bayapureddy	</a></li>
 				  </ul>
