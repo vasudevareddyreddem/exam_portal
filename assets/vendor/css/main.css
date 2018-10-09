@@ -35,6 +35,10 @@ background-attachment:fixed;
    
  .notification-heading, .notification-footer  {
   padding:2px 10px;
+
+  background:#ddd;
+  text-align:center;
+  color:#d5d5d5;
        }
       
         

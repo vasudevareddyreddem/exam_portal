@@ -88,6 +88,11 @@ class Dashboard extends Front_end {
 		$this->load->view('html/notifications');
 		$this->load->view('html/footer');
 	}
+	public  function notifications_view(){
+		
+		$this->load->view('html/notifications-view.php');
+		$this->load->view('html/footer');
+	}
 	
 	
 	
