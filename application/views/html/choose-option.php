@@ -5,9 +5,10 @@
         <div class="col-md-9">
 		<div class="box-data">
             <div class="box-header">
-              <h3 class="box-title">Start Exam</h3>
+              <h3 class="box-title pull-left">Start Exam</h3>
 			    <h3 class="btn btn-warning btn-lg pull-right" id=""><div id="demo"><?php echo isset($timer_details['start_time'])?$timer_details['start_time']:''; ?></div></h3>
             </div>
+			<div class="clearfix">&nbsp;</div>
 			<hr>
             <!-- /.box-header -->
             <div class="box-body table-responsive "  style="padding:20px;">

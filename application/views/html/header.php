@@ -32,6 +32,52 @@
 		   <div class="col-md-6">
 				
 				 <ul class="main-head-li" style="margin-top:10px;">
+				 <li class="dropdown "> 
+  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html" aria-expanded="true">
+    <i class="glyphicon glyphicon-bell"></i> <sup>10</sup>
+  </a>
+  
+  <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
+    
+    <div class="notification-heading"><h4 class="menu-title">Notifications</h4>
+    </div> 
+   <div class="notifications-wrapper"> 
+     <a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png"">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>  
+	<a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png"">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>     <a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png"">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>  
+	<a class="content" href="#"> 
+       <div class="notification-item">
+       <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png"">
+        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
+        <p class="item-info">Mr hassan has followed you!</p>
+      </div>  
+    </a>
+
+    
+      
+
+   </div> 
+    <div class="notification-footer"><a href="<?php echo base_url('dashboard/notifications_view'); ?>"><h4 class="menu-title text-center">View All</h4></a>
+    </div> 
+  </ul>
+  </li>
 					<?php if($this->session->userdata('student_details')){ ?>
 						<li>
 						<a href="<?php echo base_url('profile'); ?>" >
