@@ -159,19 +159,20 @@ class User extends CI_Controller {
 		$check_email=$this->Users_model->check_email_exits($post['email']);
 			if(count($check_email)>0){
 				
-				$data['details']=$check_email;
-				$this->load->library('email');
-				$this->email->set_newline("\r\n");
-				$this->email->set_mailtype("html");
-				$this->email->from($post['email']);
-				$this->email->to('admin@dkstudioin.com');
-				$this->email->subject('forgot - password');
-				$body = $this->load->view('email/forgot',$data,TRUE);
-				//echo '<pre>';print_r($body);exit;
-				$this->email->message($body);
-				$this->email->send();
-				$this->session->set_flashdata('success','Check Your Email to reset your password!');
-				redirect('user/login');
+				$this->load->library('email');   
+				//$this->email->initialize($config);
+				$this->email->from('info@iammillionaire.in', 'forgot');
+				$this->email->to($post['email']); 
+				$this->email->subject('Forgot - Password');
+				$msg='Your Password is :'.$check_email['org_password'];
+				$this->email->message($msg);
+				//$this->email->message('forgotpassword.');  
+				if($this->email->send()){
+					$this->session->set_flashdata('success','Check Your Email to reset your password!');
+				}else{
+					$this->session->set_flashdata('error','Technical problem will occured. try again once');
+
+				}
 
 			}else{
 				$this->session->set_flashdata('error','The email you entered is not a registered email. Please try again. ');
