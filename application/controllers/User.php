@@ -173,6 +173,7 @@ class User extends CI_Controller {
 					$this->session->set_flashdata('error','Technical problem will occured. try again once');
 
 				}
+				redirect('user/login');
 
 			}else{
 				$this->session->set_flashdata('error','The email you entered is not a registered email. Please try again. ');
