@@ -8,6 +8,7 @@
            
         
             <div class="box-body table-responsive">
+			<?php if(isset($notification_list) && count($notification_list)>0){ ?>
 			<table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -16,66 +17,35 @@
                 </tr>
                 </thead>
                 <tbody>
+				<?php foreach($notification_list as $list){
+					$date1 = strtotime($list['created_at']);
+					$date2 = strtotime(date('Y-m-d H:i:s'));
+					$seconds_diff = $date2 - $date1;
+					?>
     
       <tr>
          <td> 
 			
 			   <div class="notification-item">
-			   <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png">
-				<h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-				<p class="item-info">Mr hassan has followed you! Mr hassan has followed you! </p>
-			  </div>  
+						  <?php if($list['profile_pic']==''){ ?>
+						   <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png">
+							
+						  <?php }else{ ?>
+							<img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url('assets/profile_pic/'.$list['profile_pic']); ?>">
+						  <?php } ?>
+							<h4 class="item-title"><?php echo $list['title']; ?>  <small> <?php echo round(abs($seconds_diff) / 60,2). " mins ago"; ?></small></h4>
+							<p class="item-info"><?php echo $list['message']; ?> </p>
+						  </div> 
 		
 		</td>
       </tr>  
-	     <tr>
-         <td> 
-			
-			   <div class="notification-item">
-			   <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png">
-				<h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-				<p class="item-info">Mr hassan has followed you! Mr hassan has followed you! </p>
-			  </div>  
-		
-		</td>
-      </tr> 
-	     <tr>
-         <td> 
-			
-			   <div class="notification-item">
-			   <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png">
-				<h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-				<p class="item-info">Mr hassan has followed you! Mr hassan has followed you! </p>
-			  </div>  
-		
-		</td>
-      </tr> 
-	     <tr>
-         <td> 
-			
-			   <div class="notification-item">
-			   <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png">
-				<h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-				<p class="item-info">Mr hassan has followed you! Mr hassan has followed you! </p>
-			  </div>  
-		
-		</td>
-      </tr> 
-	     <tr>
-         <td> 
-			
-			   <div class="notification-item">
-			   <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png">
-				<h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-				<p class="item-info">Mr hassan has followed you! Mr hassan has followed you! </p>
-			  </div>  
-		
-		</td>
-      </tr> 
-     
+	    
+     <?php } ?>
    </tbody>
              
               </table>
+			  
+			<?php } ?>
 			
             </div>
             <!-- /.box-body -->

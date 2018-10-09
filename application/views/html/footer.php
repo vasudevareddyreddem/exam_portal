@@ -32,7 +32,7 @@
               </ul>
             </div>
 			<div class="col-md-3 col-xl-3">
-              <h3>Socail</h3>
+              <h3>Social</h3>
              		<ul class="">
         			
     					<li>

@@ -130,7 +130,7 @@
                   </div>
                   </div>
                   <body onload="disableSubmit()" >
-                      <input type="checkbox"  name="terms" id="terms" style="margin-top:10px;" >I Agree Terms & Coditions
+                      <input type="checkbox"  name="terms" id="terms" style="margin-top:10px;" >I Agree Terms & Conditions
 				</body>
 
    <!-- Button -->

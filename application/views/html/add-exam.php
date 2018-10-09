@@ -65,7 +65,7 @@
 <div class="form-group">
   <label class="col-md-12 control-label" for="time"></label>  
   <div class="col-md-12">
-  <input id="time_limit" name="time_limit" placeholder="Enter time limit for test in minute" class="form-control input-md" type="text">
+  <input id="time_limit" name="time_limit" placeholder="example:12:10:10" class="form-control input-md" type="text">
     
   </div>
 </div>
@@ -161,7 +161,7 @@ $(document).ready(function() {
 						message: 'Time Limit is required'
 					},
 					regexp: {
-					regexp: /^[a-zA-Z0-9. ]+$/,
+					regexp: /^([01]\d|2[0-3]):[0-5]\d:[0-5]\d$/,
 					message: 'Time Limit can only consist of alphanumeric, space and dot'
 					}
 				

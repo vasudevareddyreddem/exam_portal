@@ -32,9 +32,10 @@
 		   <div class="col-md-6">
 				
 				 <ul class="main-head-li" style="margin-top:10px;">
+				   <?php if(isset($details['role']) && $details['role']==2){ ?>
 				 <li class="dropdown "> 
   <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html" aria-expanded="true">
-    <i class="glyphicon glyphicon-bell"></i> <sup>10</sup>
+    <i class="glyphicon glyphicon-bell"></i> <sup><?php echo isset($read_count)?$read_count:''; ?></sup>
   </a>
   
   <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
@@ -42,33 +43,24 @@
     <div class="notification-heading"><h4 class="menu-title">Notifications</h4>
     </div> 
    <div class="notifications-wrapper"> 
-     <a class="content" href="#"> 
+     <?php foreach($notification_list as $list){ 
+			$date1 = strtotime($list['created_at']);
+			$date2 = strtotime(date('Y-m-d H:i:s'));
+			$seconds_diff = $date2 - $date1;
+	 ?>
+	<a class="content" href="<?php echo base_url('dashboard/notifications_view'); ?>"> 
        <div class="notification-item">
-       <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png"">
-        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-        <p class="item-info">Mr hassan has followed you!</p>
-      </div>  
-    </a>  
-	<a class="content" href="#"> 
-       <div class="notification-item">
-       <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png"">
-        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-        <p class="item-info">Mr hassan has followed you!</p>
-      </div>  
-    </a>     <a class="content" href="#"> 
-       <div class="notification-item">
-       <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png"">
-        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-        <p class="item-info">Mr hassan has followed you!</p>
-      </div>  
-    </a>  
-	<a class="content" href="#"> 
-       <div class="notification-item">
-       <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png"">
-        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-        <p class="item-info">Mr hassan has followed you!</p>
+	   <?php if($list['profile_pic']==''){ ?>
+	   <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png">
+		
+	  <?php }else{ ?>
+		<img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url('assets/profile_pic/'.$list['profile_pic']); ?>">
+	  <?php } ?>
+        <h4 class="item-title"><?php echo substr($list['title'], 0, 30); ?>   <small> <?php echo round(abs($seconds_diff) / 60,2). " mins ago"; ?></small></h4>
+        <p class="item-info"><?php echo substr($list['message'], 0, 30); ?></p>
       </div>  
     </a>
+	 <?php } ?>
 
     
       
@@ -78,6 +70,7 @@
     </div> 
   </ul>
   </li>
+  <?php } ?>
 					<?php if($this->session->userdata('student_details')){ ?>
 						<li>
 						<a href="<?php echo base_url('profile'); ?>" >
@@ -115,50 +108,7 @@
       
       <ul class="nav navbar-nav navbar-right" >
 	  <?php if(isset($details['role']) && $details['role']==2){ ?>
-	   <li class="dropdown"> 
-  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-    <i class="glyphicon glyphicon-bell"></i> <sup>10</sup>
-  </a>
-  
-  <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
-    
-    <div class="notification-heading"><h4 class="menu-title">Notifications</h4>
-    </div> 
-   <div class="notifications-wrapper"> 
-     <a class="content" href="#"> 
-       <div class="notification-item">
-       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
-        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-        <p class="item-info">Mr hassan has followed you!</p>
-      </div>  
-    </a>  
-	<a class="content" href="#"> 
-       <div class="notification-item">
-       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
-        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-        <p class="item-info">Mr hassan has followed you!</p>
-      </div>  
-    </a>     <a class="content" href="#"> 
-       <div class="notification-item">
-       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
-        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-        <p class="item-info">Mr hassan has followed you!</p>
-      </div>  
-    </a>  
-	<a class="content" href="#"> 
-       <div class="notification-item">
-       <img style="width:50px;height:50px;border-radius:50%;" src="image/logo.png">
-        <h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-        <p class="item-info">Mr hassan has followed you!</p>
-      </div>  
-    </a>
-
-    
-      
-
-   </div> 
-  </ul>
-  </li>
+	   
 		<li><a href="<?php echo base_url('dashboard'); ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Home<span class="sr-only">(current)</span></a></li>
 		<li><a href="<?php echo base_url('exam/completed_list'); ?>"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp; Exam Name</a></li>
 		<li><a href="<?php echo base_url('exam/rank'); ?>"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp; Ranking</a></li> 

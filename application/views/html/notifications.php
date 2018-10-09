@@ -10,17 +10,17 @@
 			<hr>
         
             <div class="box-body table-responsive">
-			<form>
+			<form name="defaultForm" id="defaultForm" method="post" action="<?php echo base_url('dashboard/addnotification'); ?>">
               <div class="form-group">
 				<label class=" control-label" for="email">Title</label>  
 				<div style="margin-top:5px;">
-				<input name="Title" placeholder="Enter title" class="form-control input-md" type="text">
+				<input name="title" id="title" placeholder="Enter title" class="form-control input-md" type="text">
 				</div>
 			 </div>
 			 <div class="form-group">
 				<label class=" control-label" for="email">Message</label>  
 				<div style="margin-top:5px;">
-				   <textarea   placeholder="Enter your message " class="form-control input-md" type="text" rows="5"></textarea>
+				   <textarea name="message" id="message"   placeholder="Enter your message " class="form-control input-md" type="text" rows="5"></textarea>
 				</div>
 			 </div>
 			 <button type="submit" class="btn btn-primary pull-right">Send</button>
@@ -43,28 +43,30 @@
                 </tr>
                 </thead>
                 <tbody>
+				<?php foreach($notification_list as $list){
+					$date1 = strtotime($list['created_at']);
+					$date2 = strtotime(date('Y-m-d H:i:s'));
+					$seconds_diff = $date2 - $date1;
+					?>
     
-      <tr>
-         <td> 
-			 <a class="content" href="#"> 
-			   <div class="notification-item">
-			   <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png">
-				<h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-				<p class="item-info">Mr hassan has followed you! Mr hassan has followed you! </p>
-			  </div>  
-			</a> 
-		</td>
-      </tr>   <tr>
-         <td> 
-			 <a class="content" href="#"> 
-			   <div class="notification-item">
-			   <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png">
-				<h4 class="item-title">Evaluation Deadline  <small> 1 day ago</small></h4>
-				<p class="item-info">Mr hassan has followed you! Mr hassan has followed you! </p>
-			  </div>  
-			</a> 
-		</td>
-      </tr>
+				  <tr>
+					 <td> 
+						 <a class="content" href="#"> 
+						   <div class="notification-item">
+						  <?php if($list['profile_pic']==''){ ?>
+						   <img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url(); ?>assets/vendor/image/logo.png">
+							
+						  <?php }else{ ?>
+							<img style="width:50px;height:50px;border-radius:50%;" src="<?php echo base_url('assets/profile_pic/'.$list['profile_pic']); ?>">
+						  <?php } ?>
+							<h4 class="item-title"><?php echo $list['title']; ?>  <small> <?php echo round(abs($seconds_diff) / 60,2). " mins ago"; ?></small></h4>
+							<p class="item-info"><?php echo $list['message']; ?> </p>
+						  </div>  
+						</a> 
+					</td>
+				  </tr> 
+				
+				<?php } ?>
      
    </tbody>
              
@@ -94,4 +96,29 @@
     });
   });
 </script>
+   <script type="text/javascript">
+$(document).ready(function() {
+  $('#defaultForm').bootstrapValidator({
+      fields: {
+            title: {
+                  validators: {
+					notEmpty: {
+						message: 'Title is required'
+					}
+				}
+            },
+            message: {
+                validators: {
+					notEmpty: {
+						message: 'Message is required'
+					}
+				
+				}
+            }
+        }
+    });
+
+});
+</script>
+
    

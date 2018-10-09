@@ -67,6 +67,12 @@ class Exam_model extends CI_Model
 		
 		return $this->db->get()->row_array();
 	}
+	public function get_all_question_details($exam_id,$question_id){
+		$this->db->select('*')->from('exam_questions');
+		$this->db->where('examm_id',$exam_id);
+		$this->db->where('q_id',$question_id);
+		return $this->db->get()->row_array();
+	}
 	
 	public  function save_question_answer($data){
 		$this->db->insert('user_exams',$data);

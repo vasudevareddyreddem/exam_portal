@@ -102,6 +102,52 @@ class Users_model extends CI_Model
 		return $this->db->query($sql)->row_array(); 
 	}
 	
+	public  function get_all_users_lists(){
+		$this->db->select('created_at,u_id')->from('users');
+		return $this->db->get()->result_array();
+	}
+	
+	public  function add_notification($data){
+		$this->db->insert('notifications',$data);
+		return $this->db->insert_id();
+	}
+	
+	public  function get_all_notification_list(){
+		$this->db->select('notifications.n_id,notifications.title,notifications.message,notifications.created_at,users.profile_pic')->from('notifications');
+		$this->db->join('users', 'users.u_id = notifications.user_id', 'left');
+		$this->db->group_by('notifications.message');
+		$this->db->order_by('notifications.n_id','desc');
+		return $this->db->get()->result_array();
+	}
+	public  function get_user_notification_list($u_id){
+		$this->db->select('notifications.n_id,notifications.title,notifications.message,notifications.created_at,users.profile_pic')->from('notifications');
+		$this->db->join('users', 'users.u_id = notifications.user_id', 'left');
+		$this->db->where('notifications.user_id',$u_id);
+		$this->db->group_by('notifications.message');
+		$this->db->order_by('notifications.n_id','desc');
+		return $this->db->get()->result_array();
+	}
+	public  function get_user_notification_list_limit($u_id){
+		$this->db->select('notifications.n_id,notifications.title,notifications.message,notifications.created_at,users.profile_pic')->from('notifications');
+		$this->db->join('users', 'users.u_id = notifications.user_id', 'left');
+		$this->db->where('notifications.user_id',$u_id);
+		$this->db->limit(5);
+		//$this->db->group_by('notifications.message');
+		$this->db->order_by('notifications.created_at','desc');
+		return $this->db->get()->result_array();
+	}
+	public  function get_unread_count_user_notification_list($u_id){
+		$this->db->select('COUNT(*) as count')->from('notifications');
+		$this->db->where('notifications.user_id',$u_id);
+		$this->db->where('notifications.read',0);
+		return $this->db->get()->row_array();
+	}
+	
+	public  function update_notification_read_count($n_id,$data){
+		$this->db->where('n_id',$n_id);	
+		return $this->db->update('notifications',$data);
+	}
+	
 	
 	
 	
