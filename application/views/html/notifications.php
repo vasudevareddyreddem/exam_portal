@@ -1,4 +1,3 @@
-<?php include("admin-header.php"); ?>
 	<div class="container content-start">
 		<div class="row">
 				<section class="content">
@@ -84,5 +83,4 @@
 		</div>
 	</div>
 
-<?php include("footer.php"); ?>
    

@@ -83,7 +83,11 @@ class Dashboard extends Front_end {
 		$this->session->unset_userdata('student_details');
         redirect('');
 	}
-	
+	public  function notifications(){
+		
+		$this->load->view('html/notifications');
+		$this->load->view('html/footer');
+	}
 	
 	
 	

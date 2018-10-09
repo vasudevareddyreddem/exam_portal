@@ -15,7 +15,7 @@
       <script src="<?php echo base_url(); ?>assets/vendor/js/bootstrap.min.js"  type="text/javascript"></script>
 	    <script src="<?php echo base_url(); ?>assets/vendor/js/bootstrapValidator.min.js"  type="text/javascript"></script>
 		 <script src="<?php echo base_url(); ?>assets/vendor/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/vendor/js/dataTables.bootstrap.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/vendor/js/dataTables.bootstrap.min.js"></script>
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
      
@@ -80,7 +80,8 @@
         <li><a href="<?php echo base_url('dashboard/lists'); ?>">User</a></li>
 		<li ><a href="<?php echo base_url('exam/score'); ?>">Score</a></li>
 		<li ><a href="<?php echo base_url('exam/feedback'); ?>">Feedback</a></li>
-        <li class="dropdown <?php if(@$_GET['q']==4 || @$_GET['q']==5) echo'active"'; ?>">
+		<li ><a href="<?php echo base_url('dashboard/notifications'); ?>">Notifications</a></li>
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Online Exam<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo base_url('exam'); ?>">Add Exam</a></li>
