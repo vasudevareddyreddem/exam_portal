@@ -1,186 +1,318 @@
-<?php include("header.php"); ?>
-     
-	   
-      <div class="container-fluid content-start">
-      <div class="row">
-         <div class="col-md-8">
-            <div id="demo" class="carousel slide"   data-ride="carousel">
-               <!-- Indicators -->
-               <ul class="carousel-indicators">
-                  <li data-target="#demo" data-slide-to="0" class="active"></li>
-                  <li data-target="#demo" data-slide-to="1"></li>
-                  <li data-target="#demo" data-slide-to="2"></li>
-               </ul>
-               <!-- The slideshow -->
-               <div class="carousel-inner">
-                  <div class="item active">
-                     <img src="image/1.jpg" alt="Los Angeles"  width="1000" height="400">
-                  </div>
-                  <div class="item">
-                     <img src="image/2.jpg" alt="Chicago" width="1000" height="400">
-                  </div>
-                  <div class="item">
-                     <img src="image/3.jpg" alt="New York"  width="1000" height="400">
-                  </div>
-               </div>
-               <!-- Left and right controls -->
-               <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-               <span class="glyphicon glyphicon-chevron-left"></span>
-               <span class="sr-only">previos</span>
-               </a>
-               <a class="right carousel-control" href="#demo" data-slide="next">
-               <span  class="glyphicon glyphicon-chevron-right"></span>
-               <span class="sr-only">next</span>
-               </a>
-            </div>
-         </div>
-     
-         <div class="col-md-4">
-         <div class="card bord-top5">
-            <h3 style="text-align:center;background:#ddd;margin:0;padding:14px;">Be a Millionaire </h3>
-            <!-- sign in form begins -->  
-            <form class="form-horizontal"  name="form" action="sign.php?q=account.php" onSubmit="return validateForm()" method="POST">
-           
-                  <!-- Text input-->
-                  <div style="padding:12px;" >
-                  <div class="form-group "  >
-                  <label class="col-md-4" for="name"><b> Name</b></label>
-					<div class="col-md-8">				  
-                     <input class="form-control " data-val="true" data-val-required="Full name is Required " id="name" name="name" placeholder="Enter your name" type="text" value="">
-					 </div>
-                  </div>
-                  <!-- Text input-->
-                  <div class="form-group" style="margin-top:20px;" >
-                      <label class=" col-md-4"><b>Gender</b></label>  
-					  <div class="col-md-8">	
-						  <div class="form-check col-md-6">
-								<label>
-									<input type="radio" name="radio" checked> <span class="label-text">Female</span>
-								</label>
-							</div>
-								<div class="form-check col-md-6">
-								<label>
-									<input type="radio" name="radio"> <span class="label-text">Male</span>
-								</label>
-							</div>
-					 </div>
-                  </div>
-                  <!-- Text input-->
-                  <div class="form-group md-12" style="margin-top:20px;">
-                  <label class=" col-md-4"><b>Date Of Birth</b></label> 
-				  <div class="col-md-8">	
-				  <input class="form-control" data-val="true" data-val-required="Full name is Required" id="date" 
-                        name="date" type="date" value="">
+<?php
+date_default_timezone_set('Asia/Kolkata');
+?>
+<?php
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * @link	https://codeigniter.com
+ * @since	Version 1.0.0
+ * @filesource
+ */
 
-                  </div>
-                  </div>
-                  <!-- Text input-->
-                  <div class="form-group" style="margin-top:20px;">
-                      <label class="col-md-4"><b> Country</b></label>  
-					<div class="col-md-8">	
-                     <select class="form-control" data-val="true" data-val-required="Country is Required"  name="country" id="country" placeholder="Country" type="text" value="">
-                        <option>Enter your country</option>
-                        <option>India</option>
-                        <option>UK</option>
-                        <option>US </option>
-                        <option>Germany</option>
-                        <option>Italy </option>
-                        <option>Australia </option>
-                        <option>Switzerland</option>
-                        <option>Brazil </option>
-                        <option>Newzealand </option>
-                        <option>North Europe </option>
-                        <option>Norway </option>
-                        <option>Denmark </option>
-                        <option>Finland </option>
-                        <option>Colombia </option>
-                        <option>Mexico </option>
-                     </select>
-                  </div>
-                  </div>
-                  <!-- Text input-->
-                  <div class="form-group" style="margin-top:20px;">
-                    <label class="col-md-4"><b> State</b></label>
-					<div class="col-md-8">	
-                     <select class="form-control" data-val="true" data-val-required="Country is Required" id="state" name="state" placeholder="State" type="text" value="">
-                        <option>Enter your State</option>
-                        <option>Andhra Pradesh</option>
-                        <option> Assam</option>
-                        <option>Bihar</option>
-                        <option>Chhattisgarh</option>
-                        <option> Goa</option>
-                        <option>Gujarat</option>
-                        <option>Haryana</option>
-                        <option> Jammu & Kashmir</option>
-                        <option>Jharkhand</option>
-                        <option>Karnataka</option>
-                        <option> Kerala</option>
-                        <option>Madhya Pradesh</option>
-                        <option>Maharashtra</option>
-                        <option> Manipur</option>
-                        <option>Meghalaya</option>
-                        <option>Mizoram</option>
-                        <option> Nagaland</option>
-                        <option>Odisha</option>
-                        <option>Punjab</option>
-                        <option> Rajasthan</option>
-                        <option>Tamil Nadu</option>
-                        <option>Telangana</option>
-                        <option>Tripura</option>
-                        <option>Uttarakhand</option>
-                        <option>Uttar Pradesh</option>
-                        <option>West Bengal</option>
-                     </select>
-                  </div>
-                  </div>
-                  <!-- Text input-->
-                  <div class="form-group" style="margin-top:20px;">
-                     <label class="col-md-4"><b> Email-id</b></label> 
-					 <div class="col-md-8">	
-					 <input id="email" name="email" placeholder=" Email-id" class="form-control input-md" type="email">
-                  </div>
-                  </div>
-                  <!-- Text input-->
-                  <div class="form-group" style="margin-top:20px;">
-					<label class="col-md-4"><b>Mobile Number</b></label>  
-					<div class="col-md-8">	
-                    <input id="mob" name="mob" placeholder="Mobile number" class="form-control input-md" type="number">
-                  </div>
-                  </div>
-                  <!-- Text input-->
-                  <div class="form-group mx-sm-3 mb-2" style="margin-top:20px;">
-                    <label class="col-md-4"><b>Password</b></label>
-					<div class="col-md-8">						
-					<input class="form-control" data-val="true" data-val-required="password is Required" id="password" name="password" placeholder="Password" type="password" value="">
-                  </div>
-                  </div>
-                  <div class="form-group mx-sm-3 " style="margin-top:20px;">
-                     <label class="col-md-4"><b>Confirm Password</b></label> 
-					 <div class="col-md-8">	
-					 <input class="form-control" data-val="true" data-val-required="conform pasword is Required" id="cpassword" 
-                        name="cpassword" placeholder="Confirm Password" type="password" value="">
-                  </div>
-                  </div>
-                  <body onload="disableSubmit()" >
-                      <input type="checkbox"  name="terms" id="terms" style="margin-top:10px;" onchange="activateButton(this)">I Agree Terms & Coditions
-				</body>
-   <?php if(@$_GET['q7'])
-      { echo'<p style="color:red;font-size:15px;">'.@$_GET['q7'];}?>
-   <!-- Button -->
-   <div class="form-group" style="margin-top:10px;">
-   
-   <div class="col-md-12"> 
-   <input type="submit" class="btn btn-block btn-primary" value="sign up">
-   </div>
-   </div>
-   </div>
-   </div>
- 
-   </form>
-   </div>
-   </div><!--col-md-6 end-->
-   </div>
-   </div>
-   </div>
-   <?php include("footer.php"); ?>
-   
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ */
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
+switch (ENVIRONMENT)
+{
+	case 'development':
+		error_reporting(-1);
+		ini_set('display_errors', 1);
+	break;
+
+	case 'testing':
+	case 'production':
+		ini_set('display_errors', 0);
+		if (version_compare(PHP_VERSION, '5.3', '>='))
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+		}
+		else
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+		}
+	break;
+
+	default:
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'The application environment is not set correctly.';
+		exit(1); // EXIT_ERROR
+}
+
+/*
+ *---------------------------------------------------------------
+ * SYSTEM DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" directory.
+ * Set the path if it is not in the same directory as this file.
+ */
+	$system_path = 'system';
+
+/*
+ *---------------------------------------------------------------
+ * APPLICATION DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * directory than the default one you can set its name here. The directory
+ * can also be renamed or relocated anywhere on your server. If you do,
+ * use an absolute (full) server path.
+ * For more info please see the user guide:
+ *
+ * https://codeigniter.com/user_guide/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ */
+	$application_folder = 'application';
+
+/*
+ *---------------------------------------------------------------
+ * VIEW DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want to move the view directory out of the application
+ * directory, set the path to it here. The directory can be renamed
+ * and relocated anywhere on your server. If blank, it will default
+ * to the standard location inside your application directory.
+ * If you do move this, use an absolute (full) server path.
+ *
+ * NO TRAILING SLASH!
+ */
+	$view_folder = '';
+
+
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here. For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT: If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller. Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ */
+	// The directory name, relative to the "controllers" directory.  Leave blank
+	// if your controller is not in a sub-directory within the "controllers" one
+	// $routing['directory'] = '';
+
+	// The controller class file name.  Example:  mycontroller
+	// $routing['controller'] = '';
+
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
+
+
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
+
+
+
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
+
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
+
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
+	}
+
+	if (($_temp = realpath($system_path)) !== FALSE)
+	{
+		$system_path = $_temp.DIRECTORY_SEPARATOR;
+	}
+	else
+	{
+		// Ensure there's a trailing slash
+		$system_path = strtr(
+			rtrim($system_path, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		).DIRECTORY_SEPARATOR;
+	}
+
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+		exit(3); // EXIT_CONFIG
+	}
+
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+	// Path to the system directory
+	define('BASEPATH', $system_path);
+
+	// Path to the front controller (this file) directory
+	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
+
+	// Name of the "system" directory
+	define('SYSDIR', basename(BASEPATH));
+
+	// The path to the "application" directory
+	if (is_dir($application_folder))
+	{
+		if (($_temp = realpath($application_folder)) !== FALSE)
+		{
+			$application_folder = $_temp;
+		}
+		else
+		{
+			$application_folder = strtr(
+				rtrim($application_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR))
+	{
+		$application_folder = BASEPATH.strtr(
+			trim($application_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
+
+	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
+
+	// The path to the "views" directory
+	if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.'views';
+	}
+	elseif (is_dir($view_folder))
+	{
+		if (($_temp = realpath($view_folder)) !== FALSE)
+		{
+			$view_folder = $_temp;
+		}
+		else
+		{
+			$view_folder = strtr(
+				rtrim($view_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.strtr(
+			trim($view_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
+
+	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ */
+require_once BASEPATH.'core/CodeIgniter.php';
