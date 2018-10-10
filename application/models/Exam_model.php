@@ -105,7 +105,7 @@ class Exam_model extends CI_Model
 			$data[$lis['exam_id']]['total']=isset($total['total'])?$total['total']:'';
 			$data[$lis['exam_id']]['wrong_count']=isset($wronglists['COUNT'])?$wronglists['COUNT']:'';
 			$data[$lis['exam_id']]['right_count']=isset($lists['COUNT'])?$lists['COUNT']:'';
-			$data[$lis['exam_id']]['score']=isset($lists['COUNT'])?$lists['COUNT']*$lis['right_answers']:'';
+			$data[$lis['exam_id']]['score']=isset($lists['COUNT'])?$lists['COUNT']:'';
 			
 		}
 		if(!empty($data)){
@@ -153,20 +153,21 @@ class Exam_model extends CI_Model
 			$total=$this->totalqueation_count($lis['exam_id'],$lis['user_id']);
 			$lists=$this->get_exam_score_details($lis['exam_id'],$lis['user_id']);
 			$wronglists=$this->get_exam_wrong_score_details($lis['exam_id'],$lis['user_id']);
-			if($lists['COUNT']!=0){
 				$result[$lis['u_e_id']]=$lis;
 				$result[$lis['u_e_id']]['total']=isset($total['total'])?$total['total']:'';
 				$result[$lis['u_e_id']]['wrong_count']=isset($wronglists['COUNT'])?$wronglists['COUNT']:'';
 				$result[$lis['u_e_id']]['right_count']=isset($lists['COUNT'])?$lists['COUNT']:'';
-				$result[$lis['u_e_id']]['score']=isset($lists['COUNT'])?$lists['COUNT']*$lis['right_answers']:'';
-			}
+				$result[$lis['u_e_id']]['score']=isset($lists['COUNT'])?$lists['COUNT']:'';
+			
 		}
+		if(isset($result) && count($result)>0){
 			$price = array();
 			foreach ($result as $key => $row)
 			{
 			$price[$key] = $row['score'];
 			}
 			array_multisort($price, SORT_DESC, $result);
+		}
 			if(!empty($result)){
 				return $result;
 			}
@@ -205,7 +206,7 @@ class Exam_model extends CI_Model
 				$data[$lis['u_e_id']]['total']=isset($total['total'])?$total['total']:'';
 				$data[$lis['u_e_id']]['wrong_count']=isset($wronglists['COUNT'])?$wronglists['COUNT']:'';
 				$data[$lis['u_e_id']]['right_count']=isset($lists['COUNT'])?$lists['COUNT']:'';
-				$data[$lis['u_e_id']]['score']=isset($lists['COUNT'])?$lists['COUNT']*$lis['right_answers']:'';
+				$data[$lis['u_e_id']]['score']=isset($lists['COUNT'])?$lists['COUNT']:'';
 				//echo '<pre>';print_r($data);exit;
 		$cnt++;}
 

@@ -7,8 +7,8 @@
 				<?php 
 				$i=0;
 				//$grades = array(92, 84, 84, 84, 83, 65, 41, 38, 38, 37);
-				$occurrences = array_count_values($grades);
 				$grades = array_unique($grades);
+				$occurrences = array_count_values($grades);
 				foreach($grades as $grade) {
 					
 					$ranl_list[]=str_repeat($grade.'-'.($i+1).'<br>',$occurrences[$grade]);
@@ -32,7 +32,8 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-				<th>Exam</th>
+				<th>Exam Title</th>
+				<th>Name</th>
 				<th>Rank</th>
                 
                 </tr>
@@ -41,6 +42,7 @@
 				
 				<?php foreach($exam_list as $li){?>
 				  <tr>
+					 <td><?php echo $li['title']; ?></td>
 					 <td><?php echo $li['name']; ?></td>
 					 <td>
 					 <?php foreach($ranl_list as $list){ 
@@ -116,7 +118,7 @@
 
 $(document).ready(function() {
     $('#example1').DataTable( {
-        "order": [[ 1, "desc" ]]
+        "order": [[ 2, "asc" ]]
     } );
 } );
 

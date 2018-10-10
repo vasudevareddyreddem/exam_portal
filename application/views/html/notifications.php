@@ -39,7 +39,7 @@
                 <thead>
                 <tr>
                   <th class="h4">Notifications List</th>
-   
+					 <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -63,8 +63,10 @@
 							<p class="item-info"><?php echo $list['message']; ?> </p>
 						  </div>  
 						</a> 
-					</td>
-				  </tr> 
+					</td><td>
+					 <a href="<?php echo base_url('dashboard/notifications_delete/'.base64_encode($list['n_id'])); ?>">
+                                                                    <i class="fa fa-trash-o"></i>Delete</a>
+				 </td> </tr> 
 				
 				<?php } ?>
      

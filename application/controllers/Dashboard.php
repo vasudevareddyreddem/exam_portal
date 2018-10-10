@@ -159,7 +159,39 @@ class Dashboard extends Front_end {
 		
 	}
 	
-	
+	public  function notifications_delete(){
+		
+		if($this->session->userdata('student_details'))
+		{
+		$admindetails=$this->session->userdata('student_details');
+
+			if($admindetails['role']==1){
+					$n_id=base64_decode($this->uri->segment(3));
+					$nid= $this->Users_model->get_notifications_list($n_id);
+					$nids= $this->Users_model->get_notifications_list_details($nid['message']);
+					if(isset($nids) && count($nids)>0){
+						foreach($nids as $id){
+							$deletedata= $this->Users_model->delete_notifications($id['n_id']);
+						}
+					}
+							if(count($deletedata)>0){
+								$this->session->set_flashdata('success',"notification successfully removed.");
+								redirect('dashboard/notifications/');
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('dashboard/notifications/');
+							}
+				
+					}else{
+						$this->session->set_flashdata('error',"You have no permission to access");
+						redirect('dashboard');
+			}
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
+		
+	}
 	
 	
 }

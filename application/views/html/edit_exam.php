@@ -47,7 +47,7 @@
 <div class="form-group">
   <label class="col-md-12 control-label" for="right"></label>  
   <div class="col-md-12">
-  <input id="right_answers" name="right_answers" placeholder="Enter marks on right answer" class="form-control input-md"  type="text" value="<?php echo isset($exam_details['right_answers'])?$exam_details['right_answers']:''; ?>">
+  <input id="right_answers" name="right_answers" placeholder="Enter marks on right answer" class="form-control input-md"  type="text"  value="<?php echo isset($exam_details['right_answers'])?$exam_details['right_answers']:''; ?>">
     
   </div>
 </div>
@@ -139,7 +139,7 @@ $(document).ready(function() {
 						message: 'Marks on right answer is required'
 					},
 					regexp: {
-					regexp:  /^[1-9]*$/,
+					regexp:  /^[0-9]*$/,
 					message:'Marks on right answer must be only digits'
 					}
 				

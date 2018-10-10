@@ -481,7 +481,7 @@ class Exam extends Front_end {
 				$data['today_score']=$this->Users_model->get_user_today_score($admindetails['u_id'],date('Y-m-d'));
 				$dat=date('Y-m-d');
 				$date1 = new DateTime($dat);
-				$date2 = new DateTime('2018-10-05');
+				$date2 = new DateTime($user_register_time['created_at']);
 				$diff = $date1->diff($date2);
 				// will output 2 days
 				$data['total_days']=$diff->days . ' days ';
@@ -591,7 +591,7 @@ class Exam extends Front_end {
 				$data['today_score']=$this->Users_model->get_user_today_score($admindetails['u_id'],date('Y-m-d'));
 				$dat=date('Y-m-d');
 				$date1 = new DateTime($dat);
-				$date2 = new DateTime('2018-10-05');
+				$date2 = new DateTime($user_register_time['created_at']);
 				$diff = $date1->diff($date2);
 				// will output 2 days
 				$data['total_days']=$diff->days . ' days ';
@@ -620,15 +620,19 @@ class Exam extends Front_end {
 				$data['today_score']=$this->Users_model->get_user_today_score($admindetails['u_id'],date('Y-m-d'));
 				$dat=date('Y-m-d');
 				$date1 = new DateTime($dat);
-				$date2 = new DateTime('2018-10-05');
+				$date2 = new DateTime($user_register_time['created_at']);
 				$diff = $date1->diff($date2);
 				// will output 2 days
 				$data['total_days']=$diff->days . ' days ';
 				$exam_list=$this->exam_model->get_user_exam_ranks_list($admindetails['u_id']);
+				//echo '<pre>';print_r($exam_list);exit;
 				if(count($exam_list)>0){
 					foreach($exam_list as $List){
+						
+						if(count($List)>0){
 						foreach($List as $li){
 							$all_list[]=$li;
+						}
 						}
 					}
 				}else{

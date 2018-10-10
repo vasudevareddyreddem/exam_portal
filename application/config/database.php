@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'sarada',
+	'hostname' => '148.66.138.171',
+	'username' => 'sarada_live_db',
+	'password' => 'sarada_live_db@123',
+	'database' => 'sarada_live_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

@@ -148,8 +148,22 @@ class Users_model extends CI_Model
 		return $this->db->update('notifications',$data);
 	}
 	
+	public  function delete_notifications($id){
+		$this->db->where('notifications.n_id',$id);
+		return $this->db->delete('notifications');
+	}
 	
+	public  function get_notifications_list($u_id){
+		$this->db->select('*')->from('notifications');
+		$this->db->where('notifications.n_id',$u_id);
+		return $this->db->get()->row_array();
+	}
 	
+	public function get_notifications_list_details($message){
+		$this->db->select('*')->from('notifications');						
+		$this->db->where('notifications.message',$message);
+		return $this->db->get()->result_array();
+	}
 	
 
 }

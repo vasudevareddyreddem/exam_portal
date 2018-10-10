@@ -137,7 +137,7 @@ $(document).ready(function() {
 						message: 'Marks on right answer is required'
 					},
 					regexp: {
-					regexp:  /^[1-9]*$/,
+					regexp:  /^[0-9]*$/,
 					message:'Marks on right answer must be only digits'
 					}
 				
