@@ -161,7 +161,7 @@ class Users_model extends CI_Model
 	
 	public function get_notifications_list_details($message){
 		$this->db->select('*')->from('notifications');						
-		$this->db->where('notifications.message',$message);
+		$this->db->where('notifications.title',$message);
 		return $this->db->get()->result_array();
 	}
 	

@@ -167,8 +167,11 @@ class Dashboard extends Front_end {
 
 			if($admindetails['role']==1){
 					$n_id=base64_decode($this->uri->segment(3));
+					
 					$nid= $this->Users_model->get_notifications_list($n_id);
-					$nids= $this->Users_model->get_notifications_list_details($nid['message']);
+					//echo '<pre>';print_r($nid);
+					$nids= $this->Users_model->get_notifications_list_details($nid['title']);
+					//echo '<pre>';print_r($nids);exit;
 					if(isset($nids) && count($nids)>0){
 						foreach($nids as $id){
 							$deletedata= $this->Users_model->delete_notifications($id['n_id']);
