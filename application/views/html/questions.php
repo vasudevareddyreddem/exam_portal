@@ -112,55 +112,35 @@ $(document).ready(function() {
                 validators: {
                     notEmpty: {
                         message: 'Question is required'
-                    },
-					regexp: {
-					regexp:/^[ A-Za-z0-9_@.,/!;:}{@#&`~"\\|^?$*)(_+-]*$/,
-					message:'Question wont allow <> [] = % '
-					}
+                    }
                 }
             },
 			'option1[]': {
                 validators: {
                     notEmpty: {
                         message: 'Option one is required'
-                    },
-					regexp: {
-					regexp:/^[ A-Za-z0-9_@.,/!;:}{@#&`~"\\|^?$*)(_+-]*$/,
-					message:'Option one wont allow <> [] = % '
-					}
+                    }
                 }
             },
 			'option2[]': {
                 validators: {
                     notEmpty: {
                         message: 'Option two is required'
-                    },
-					regexp: {
-					regexp:/^[ A-Za-z0-9_@.,/!;:}{@#&`~"\\|^?$*)(_+-]*$/,
-					message:'Option two wont allow <> [] = % '
-					}
+                    }
                 }
             },
 			'option3[]': {
                 validators: {
                     notEmpty: {
                         message: 'Option three is required'
-                    },
-					regexp: {
-					regexp:/^[ A-Za-z0-9_@.,/!;:}{@#&`~"\\|^?$*)(_+-]*$/,
-					message:'Option three wont allow <> [] = % '
-					}
+                    }
                 }
             },
 			'option4[]': {
                 validators: {
                     notEmpty: {
                         message: 'Option four is required'
-                    },
-					regexp: {
-					regexp:/^[ A-Za-z0-9_@.,/!;:}{@#&`~"\\|^?$*)(_+-]*$/,
-					message:'Option four wont allow <> [] = % '
-					}
+                    }
                 }
             },
 			'correct_answer[]': {

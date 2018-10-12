@@ -114,10 +114,6 @@ $(document).ready(function() {
                   validators: {
 					notEmpty: {
 						message: 'Title is required'
-					},
-					regexp: {
-					regexp: /^[a-zA-Z0-9. ]+$/,
-					message: 'Title can only consist of alphanumeric, space and dot'
 					}
 				}
             },
@@ -149,10 +145,6 @@ $(document).ready(function() {
                 validators: {
 					notEmpty: {
 						message: 'Minus marks is required'
-					},
-					regexp: {
-					regexp:  /^[1-9]*$/,
-					message:'Minus marks must be only digits'
 					}
 				
 				}
@@ -163,7 +155,7 @@ $(document).ready(function() {
 						message: 'Time Limit is required'
 					},
 					regexp: {
-					regexp: /^[a-zA-Z0-9. ]+$/,
+					regexp: /^([01]\d|2[0-3]):[0-5]\d:[0-5]\d$/,
 					message: 'Time Limit can only consist of alphanumeric, space and dot'
 					}
 				
