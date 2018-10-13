@@ -165,5 +165,22 @@ class Users_model extends CI_Model
 		return $this->db->get()->result_array();
 	}
 	
+	/* payment purpose*/
+	public  function add_subscribe_payment($data){
+		$this->db->insert('subscribers_list',$data);
+		return $this->db->insert_id();
+	}
+	
+	public  function payment_details_updated($p_id,$data){
+		$this->db->where('payment_id',$p_id);	
+		return $this->db->update('subscribers_list',$data);
+	}
+	public  function get_subscribe_list(){
+		$this->db->select('*')->from('subscribers_list');						
+		$this->db->where('subscribers_list.status','Pending');
+		return $this->db->get()->result_array();
+	}
+	/* payment purpose*/
+	
 
 }

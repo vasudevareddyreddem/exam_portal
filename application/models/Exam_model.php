@@ -291,7 +291,13 @@ class Exam_model extends CI_Model
 		return $this->db->delete('exam_time_timerid');
 	}
 	/* timer*/
-	
+	public  function get_all_subscribe_user_list(){
+		$this->db->select('subscribers_list.*,users.name as u_name')->from('subscribers_list');
+		$this->db->join('users', 'users.u_id = subscribers_list.user_id', 'left');
+		
+		//$this->db->where('subscribers_list.status','Pending');
+		return $this->db->get()->result_array();
+	}
 	
 
 }

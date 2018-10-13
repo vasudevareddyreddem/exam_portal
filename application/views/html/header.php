@@ -110,17 +110,18 @@
       <ul class="nav navbar-nav navbar-right" >
 	  <?php if(isset($details['role']) && $details['role']==2){ ?>
 	   
-		<li><a href="<?php echo base_url('dashboard'); ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Home<span class="sr-only">(current)</span></a></li>
-		<li><a href="<?php echo base_url('exam/completed_list'); ?>"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp; Exam Name</a></li>
-		<li><a href="<?php echo base_url('exam/rank'); ?>"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp; Ranking</a></li> 
+		<li class="<?php if($this->uri->segment(1)=='dashboard'){ echo "active"; } ?>"><a href="<?php echo base_url('dashboard'); ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Home<span class="sr-only">(current)</span></a></li>
+		<li class="<?php if($this->uri->segment(2)=='completed_list'){ echo "active"; } ?>"><a href="<?php echo base_url('exam/completed_list'); ?>"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp; Exam Name</a></li>
+		<li class="<?php if($this->uri->segment(2)=='rank'){ echo "active"; } ?>"><a href="<?php echo base_url('exam/rank'); ?>"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp; Ranking</a></li> 
 		
 		<?php }else{ ?>
-		<li class="active"><a href="<?php echo base_url('dashboard'); ?>">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="<?php echo base_url('dashboard/lists'); ?>">User</a></li>
-		<li ><a href="<?php echo base_url('exam/score'); ?>">Score</a></li>
-		<li ><a href="<?php echo base_url('exam/feedback'); ?>">Feedback</a></li>
-		<li ><a href="<?php echo base_url('dashboard/notifications'); ?>">Notifications</a></li>
-        <li class="dropdown">
+		<li class="<?php if($this->uri->segment(1)=='exam' && $this->uri->segment(2)=='lists'){ echo "active"; } ?>"><a href="<?php echo base_url('dashboard'); ?>">Home<span class="sr-only">(current)</span></a></li>
+        <li class="<?php if($this->uri->segment(1)=='dashboard' && $this->uri->segment(2)=='lists'){ echo "active"; } ?>"><a href="<?php echo base_url('dashboard/lists'); ?>">User</a></li>
+		<li class="<?php if($this->uri->segment(2)=='score'){ echo "active"; } ?>"><a href="<?php echo base_url('exam/score'); ?>">Score</a></li>
+		<li class="<?php if($this->uri->segment(2)=='feedback'){ echo "active"; } ?>"><a href="<?php echo base_url('exam/feedback'); ?>">Feedback</a></li>
+		<li class="<?php if($this->uri->segment(2)=='subscribe_list'){ echo "active"; } ?>"><a href="<?php echo base_url('exam/subscribe_list'); ?>">Subscribe List</a></li>
+		<li class="<?php if($this->uri->segment(2)=='notifications'){ echo "active"; } ?>"><a href="<?php echo base_url('dashboard/notifications'); ?>">Notifications</a></li>
+        <li class="dropdown <?php if($this->uri->segment(1)=='exam' && $this->uri->segment(2)==''){ echo "active"; } ?>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Online Exam<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo base_url('exam'); ?>">Add Exam</a></li>

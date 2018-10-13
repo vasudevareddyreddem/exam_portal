@@ -807,6 +807,25 @@ class Exam extends Front_end {
 			
 			exit;
 	}
+	public function subscribe_list(){
+			if($this->session->userdata('student_details'))
+		{
+			$admindetails=$this->session->userdata('student_details');
+			if($admindetails['role']==1){
+					$data['subscribe_list']=$this->exam_model->get_all_subscribe_user_list();
+					$this->load->view('html/subscribe_list',$data);
+					$this->load->view('html/footer');
+					//echo '<pre>';print_r($data);exit;
+			}else{
+				$this->session->set_flashdata('error','You dont have permissions');
+				redirect('dashboard');
+			}
+			
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('');
+		}
+	}
 	public function logout(){
 		$userinfo = $this->session->userdata('student_details');
         $this->session->unset_userdata($userinfo);

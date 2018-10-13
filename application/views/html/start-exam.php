@@ -85,7 +85,7 @@
 					<a class="btn btn-primary" data-toggle="modal"  href="#feedback">What New's</a>
 				</div>	
 				<div class="text-center mar-t35">
-					<a href="#" class="btn btn-primary" >Subscribe</a>
+					<a href="<?php echo base_url('payment/'); ?>" class="btn btn-primary" >Subscribe</a>
 				</div>
 		  </div>
       </div>
