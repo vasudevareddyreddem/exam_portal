@@ -676,8 +676,8 @@ class Exam extends Front_end {
 						$delete=$this->exam_model->delete_previous($list['u_e_id']);
 					}
 			}
-			//echo '<pre>';print_r($check_exam_exist);exit;
-			$question_details=$this->exam_model->get_question_details($post['exam_id'],$post['q_id']);
+			
+			$question_details=$this->exam_model->get_all_question_details($post['exam_id'],$post['q_id']);
 			$add=array(
 			'user_id'=>$student_details['u_id'],
 			'exam_id'=>isset($post['exam_id'])?$post['exam_id']:'',
@@ -689,6 +689,7 @@ class Exam extends Front_end {
 			'created_by'=>$student_details['u_id'],
 			'date'=>date('Y-m-d'),
 			);
+			//echo '<pre>';print_r($add);exit;
 			$next_queation_id=$this->exam_model->get_next_exam_question_id($post['exam_id'],$post['question_id']);
 			
 			//echo '<pre>';print_r($next_queation_id);exit;
